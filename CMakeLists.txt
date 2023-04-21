@@ -10,11 +10,4 @@ if(NOT CMAKE_BUILD_TYPE)
     CACHE STRING "Choose the type of build (Debug or Release)" FORCE)
 endif()
 
-include(FetchContent)
-FetchContent_Declare(SFML_repo
-    GIT_REPOSITORY https://github.com/SFML/SFML.git
-    GIT_TAG 2.6.x)
-FetchContent_MakeAvailable(SFML_repo)
-
-add_executable(main src/simulator/simulator.cpp)
-target_link_libraries(main sfml-window sfml-system sfml-graphics z)
+add_subdirectory(src/simulator/)
