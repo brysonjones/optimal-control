@@ -1,6 +1,8 @@
 #include "crow.h"
 #include "crow/middlewares/cors.h"
 
+double position = 0;
+
 int main()
 {
     crow::App<crow::CORSHandler> app;
@@ -18,7 +20,8 @@ int main()
 
     CROW_ROUTE(app, "/data")([]()
     {
-        crow::json::wvalue data({{"message", "Hello, World!"}});
+        position += 0.01;
+        crow::json::wvalue data({{"x", position}});
         return data;
     });
 
