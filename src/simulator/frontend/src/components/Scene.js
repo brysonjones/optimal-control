@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Floor from "./Floor";
 import LightBulb from "./LightBulb";
@@ -28,22 +28,26 @@ export default function Scene() {
   }
 
   return (
-    <div className={css.scene}>
-      <Canvas
-        shadows
-        className={css.canvas}
-        camera={{
-          position: [-6, 7, 7],
-        }}
-      >
-        <ambientLight color={"white"} intensity={0.3} />
-        <LightBulb position={[0, 3, 0]} />        '
-        <Draggable>
-            <Box rotateX={3} rotateY={0.2} position={[x, 0, 0]}/>
-        </Draggable>
-        <OrbitControls />
-        <Floor position={[0, -1, 0]} />
-      </Canvas>
-    </div>
+    <React.Fragment>
+      <div className={css.scene}>
+        <Canvas
+          shadows
+          className={css.canvas}
+          camera={{
+            position: [-6, 7, 7],
+          }}
+        >
+          <ambientLight color={"white"} intensity={0.3} />
+          <LightBulb position={[0, 3, 0]} />        '
+          <Box rotateX={0} rotateY={0} position={[x, 0, 0]}/>
+          <OrbitControls />
+          <Floor position={[0, -0.1, 0]} />
+        </Canvas>
+      </div>
+      {/* TODO: add container for data visualization */}
+      <div>
+        <span className={css.data}>X-Position (m): {x}</span>
+      </div>
+    </React.Fragment>
   );
 }

@@ -7,3 +7,12 @@
     background: #000;
 }
 
+.data{
+    background: transparent;
+    color: white;
+    z-index: 1;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+

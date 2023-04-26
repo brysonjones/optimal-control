@@ -9,14 +9,12 @@ int main()
     
     auto& cors = app.get_middleware<crow::CORSHandler>();
 
-    // clang-format off
     cors
       .global()
         .headers("X-Custom-Header", "Upgrade-Insecure-Requests")
         .methods("POST"_method, "GET"_method)
       .prefix("/data")
         .origin("*");
-    // clang-format on
 
     CROW_ROUTE(app, "/data")([]()
     {
