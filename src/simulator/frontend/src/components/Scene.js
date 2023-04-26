@@ -7,7 +7,7 @@ import Box from "./Box";
 import OrbitControls from "./OrbitControls";
 import Draggable from "./Draggable";
 import css from "./Scene.module.css";
-import { Vector3 } from "three";
+import Rocket from "./Rocket";
 
 export default function Scene() {
   const [x, setX] = useState(0);
@@ -39,7 +39,8 @@ export default function Scene() {
         >
           <ambientLight color={"white"} intensity={0.3} />
           <LightBulb position={[0, 3, 0]} />        '
-          <Box rotateX={0} rotateY={0} position={[x, 0, 0]}/>
+          <Box position={[x, 0, 0]}/>
+          <Rocket />
           <OrbitControls />
           <Floor position={[0, -0.1, 0]} />
         </Canvas>
